@@ -32,6 +32,8 @@
             opacity: 0;
             transform: translateY(20px);
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
         }
         .gallery-item.visible {
             opacity: 1;
@@ -47,6 +49,9 @@
         }
         #modalImage {
              transition: transform 0.3s ease-in-out;
+        }
+        .gallery-item .description {
+            flex-grow: 1;
         }
     </style>
 </head>
@@ -71,60 +76,210 @@
         <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12"><span class="text-gradient">旅程掠影</span></h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8">
             <!-- 區塊 1: 1-10 -->
-            <div class="gallery-item" onclick="openModal('33.jpg')"><img src="33.jpg" alt="國王湖街景" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('34.jpg')"><img src="34.jpg" alt="國王湖售票處" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('35-1.jpg')"><img src="35-1.jpg" alt="國王湖港灣" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('35.jpg')"><img src="35.jpg" alt="國王湖電動船" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('36.jpg')"><img src="36.jpg" alt="船艙內部" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('37.jpg')"><img src="37.jpg" alt="窗邊的女孩" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('38.jpg')"><img src="38.jpg" alt="貝希特斯加登國家公園入口" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('39-1.jpg')"><img src="39-1.jpg" alt="健行路標" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('39.jpg')"><img src="39.jpg" alt="國王湖湖畔" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('40.jpg')"><img src="40.jpg" alt="林間木屋商店" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('33.jpg')">
+                <img src="33.jpg" alt="國王湖街景" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">國王湖畔的小鎮風光</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('34.jpg')">
+                <img src="34.jpg" alt="國王湖售票處" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">準備搭船的售票處</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('35-1.jpg')">
+                <img src="35-1.jpg" alt="國王湖港灣" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">靜候啟程的港灣</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('35.jpg')">
+                <img src="35.jpg" alt="國王湖電動船" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">航行在碧綠湖面</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('36.jpg')">
+                <img src="36.jpg" alt="船艙內部" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">船艙內的視角</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('37.jpg')">
+                <img src="37.jpg" alt="窗邊的女孩" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">窗邊凝望的少女</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('38.jpg')">
+                <img src="38.jpg" alt="貝希特斯加登國家公園入口" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">國家公園入口</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('39-1.jpg')">
+                <img src="39-1.jpg" alt="健行路標" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">指引方向的健行路標</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('39.jpg')">
+                <img src="39.jpg" alt="國王湖湖畔" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">清澈見底的湖畔</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('40.jpg')">
+                <img src="40.jpg" alt="林間木屋商店" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">森林中的木屋商店</p></div>
+            </div>
             <!-- 區塊 2: 11-20 (重複) -->
-            <div class="gallery-item" onclick="openModal('33.jpg')"><img src="33.jpg" alt="國王湖街景" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('34.jpg')"><img src="34.jpg" alt="國王湖售票處" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('35-1.jpg')"><img src="35-1.jpg" alt="國王湖港灣" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('35.jpg')"><img src="35.jpg" alt="國王湖電動船" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('36.jpg')"><img src="36.jpg" alt="船艙內部" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('37.jpg')"><img src="37.jpg" alt="窗邊的女孩" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('38.jpg')"><img src="38.jpg" alt="貝希特斯加登國家公園入口" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('39-1.jpg')"><img src="39-1.jpg" alt="健行路標" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('39.jpg')"><img src="39.jpg" alt="國王湖湖畔" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('40.jpg')"><img src="40.jpg" alt="林間木屋商店" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('33.jpg')">
+                <img src="33.jpg" alt="國王湖街景" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">國王湖畔的小鎮風光</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('34.jpg')">
+                <img src="34.jpg" alt="國王湖售票處" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">準備搭船的售票處</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('35-1.jpg')">
+                <img src="35-1.jpg" alt="國王湖港灣" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">靜候啟程的港灣</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('35.jpg')">
+                <img src="35.jpg" alt="國王湖電動船" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">航行在碧綠湖面</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('36.jpg')">
+                <img src="36.jpg" alt="船艙內部" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">船艙內的視角</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('37.jpg')">
+                <img src="37.jpg" alt="窗邊的女孩" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">窗邊凝望的少女</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('38.jpg')">
+                <img src="38.jpg" alt="貝希特斯加登國家公園入口" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">國家公園入口</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('39-1.jpg')">
+                <img src="39-1.jpg" alt="健行路標" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">指引方向的健行路標</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('39.jpg')">
+                <img src="39.jpg" alt="國王湖湖畔" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">清澈見底的湖畔</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('40.jpg')">
+                <img src="40.jpg" alt="林間木屋商店" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">森林中的木屋商店</p></div>
+            </div>
             <!-- 區塊 3: 21-30 (重複) -->
-            <div class="gallery-item" onclick="openModal('33.jpg')"><img src="33.jpg" alt="國王湖街景" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('34.jpg')"><img src="34.jpg" alt="國王湖售票處" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('35-1.jpg')"><img src="35-1.jpg" alt="國王湖港灣" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('35.jpg')"><img src="35.jpg" alt="國王湖電動船" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('36.jpg')"><img src="36.jpg" alt="船艙內部" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('37.jpg')"><img src="37.jpg" alt="窗邊的女孩" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('38.jpg')"><img src="38.jpg" alt="貝希特斯加登國家公園入口" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('39-1.jpg')"><img src="39-1.jpg" alt="健行路標" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('39.jpg')"><img src="39.jpg" alt="國王湖湖畔" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('40.jpg')"><img src="40.jpg" alt="林間木屋商店" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('33.jpg')">
+                <img src="33.jpg" alt="國王湖街景" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">國王湖畔的小鎮風光</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('34.jpg')">
+                <img src="34.jpg" alt="國王湖售票處" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">準備搭船的售票處</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('35-1.jpg')">
+                <img src="35-1.jpg" alt="國王湖港灣" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">靜候啟程的港灣</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('35.jpg')">
+                <img src="35.jpg" alt="國王湖電動船" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">航行在碧綠湖面</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('36.jpg')">
+                <img src="36.jpg" alt="船艙內部" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">船艙內的視角</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('37.jpg')">
+                <img src="37.jpg" alt="窗邊的女孩" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">窗邊凝望的少女</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('38.jpg')">
+                <img src="38.jpg" alt="貝希特斯加登國家公園入口" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">國家公園入口</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('39-1.jpg')">
+                <img src="39-1.jpg" alt="健行路標" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">指引方向的健行路標</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('39.jpg')">
+                <img src="39.jpg" alt="國王湖湖畔" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">清澈見底的湖畔</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('40.jpg')">
+                <img src="40.jpg" alt="林間木屋商店" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">森林中的木屋商店</p></div>
+            </div>
             <!-- 區塊 4: 31-40 (重複) -->
-            <div class="gallery-item" onclick="openModal('33.jpg')"><img src="33.jpg" alt="國王湖街景" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('34.jpg')"><img src="34.jpg" alt="國王湖售票處" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('35-1.jpg')"><img src="35-1.jpg" alt="國王湖港灣" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('35.jpg')"><img src="35.jpg" alt="國王湖電動船" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('36.jpg')"><img src="36.jpg" alt="船艙內部" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('37.jpg')"><img src="37.jpg" alt="窗邊的女孩" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('38.jpg')"><img src="38.jpg" alt="貝希特斯加登國家公園入口" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('39-1.jpg')"><img src="39-1.jpg" alt="健行路標" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('39.jpg')"><img src="39.jpg" alt="國王湖湖畔" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('40.jpg')"><img src="40.jpg" alt="林間木屋商店" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('33.jpg')">
+                <img src="33.jpg" alt="國王湖街景" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">國王湖畔的小鎮風光</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('34.jpg')">
+                <img src="34.jpg" alt="國王湖售票處" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">準備搭船的售票處</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('35-1.jpg')">
+                <img src="35-1.jpg" alt="國王湖港灣" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">靜候啟程的港灣</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('35.jpg')">
+                <img src="35.jpg" alt="國王湖電動船" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">航行在碧綠湖面</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('36.jpg')">
+                <img src="36.jpg" alt="船艙內部" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">船艙內的視角</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('37.jpg')">
+                <img src="37.jpg" alt="窗邊的女孩" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">窗邊凝望的少女</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('38.jpg')">
+                <img src="38.jpg" alt="貝希特斯加登國家公園入口" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">國家公園入口</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('39-1.jpg')">
+                <img src="39-1.jpg" alt="健行路標" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">指引方向的健行路標</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('39.jpg')">
+                <img src="39.jpg" alt="國王湖湖畔" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">清澈見底的湖畔</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('40.jpg')">
+                <img src="40.jpg" alt="林間木屋商店" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">森林中的木屋商店</p></div>
+            </div>
             <!-- 區塊 5: 41-50 (重複) -->
-            <div class="gallery-item" onclick="openModal('33.jpg')"><img src="33.jpg" alt="國王湖街景" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('34.jpg')"><img src="34.jpg" alt="國王湖售票處" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('35-1.jpg')"><img src="35-1.jpg" alt="國王湖港灣" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('35.jpg')"><img src="35.jpg" alt="國王湖電動船" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('36.jpg')"><img src="36.jpg" alt="船艙內部" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('37.jpg')"><img src="37.jpg" alt="窗邊的女孩" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('38.jpg')"><img src="38.jpg" alt="貝希特斯加登國家公園入口" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('39-1.jpg')"><img src="39-1.jpg" alt="健行路標" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('39.jpg')"><img src="39.jpg" alt="國王湖湖畔" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
-            <div class="gallery-item" onclick="openModal('40.jpg')"><img src="40.jpg" alt="林間木屋商店" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('33.jpg')">
+                <img src="33.jpg" alt="國王湖街景" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">國王湖畔的小鎮風光</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('34.jpg')">
+                <img src="34.jpg" alt="國王湖售票處" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">準備搭船的售票處</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('35-1.jpg')">
+                <img src="35-1.jpg" alt="國王湖港灣" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">靜候啟程的港灣</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('35.jpg')">
+                <img src="35.jpg" alt="國王湖電動船" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">航行在碧綠湖面</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('36.jpg')">
+                <img src="36.jpg" alt="船艙內部" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">船艙內的視角</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('37.jpg')">
+                <img src="37.jpg" alt="窗邊的女孩" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">窗邊凝望的少女</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('38.jpg')">
+                <img src="38.jpg" alt="貝希特斯加登國家公園入口" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">國家公園入口</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('39-1.jpg')">
+                <img src="39-1.jpg" alt="健行路標" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">指引方向的健行路標</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('39.jpg')">
+                <img src="39.jpg" alt="國王湖湖畔" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">清澈見底的湖畔</p></div>
+            </div>
+            <div class="gallery-item rounded-lg overflow-hidden shadow-md" onclick="openModal('40.jpg')">
+                <img src="40.jpg" alt="林間木屋商店" class="w-full h-64 object-cover">
+                <div class="description p-4 bg-white"><p class="text-center text-gray-700">森林中的木屋商店</p></div>
+            </div>
         </div>
     </main>
 
