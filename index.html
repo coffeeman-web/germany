@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>德國國王湖之旅 (男言之影)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+        }
+        .hero {
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('35-1.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #14b8a6, #06b6d4);
+        }
+        .gallery-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            cursor: pointer;
+        }
+        .gallery-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .modal-container {
+            transition: opacity 0.3s ease-in-out;
+        }
+        #modalImage {
+             transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header / Hero Section -->
+    <header class="hero h-screen flex flex-col items-center justify-center text-white text-center p-4 sm:p-6">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-black mb-4" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">德國國王湖 詩畫之旅</h1>
+        <p class="text-base sm:text-lg md:text-xl max-w-2xl mb-8" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">一趟沉浸在阿爾卑斯山脈翡翠綠寶石中的忘憂旅程</p>
+        <div class="text-white font-bold py-3 px-8 text-lg">
+            男言之影
+        </div>
+        <a href="#gallery" class="absolute bottom-10 animate-bounce">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+        </a>
+    </header>
+
+    <!-- Photo Gallery -->
+    <main id="gallery" class="container mx-auto px-4 sm:px-6 py-16 sm:py-20">
+        <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12"><span class="text-gradient">旅程掠影</span></h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8">
+            <!-- 區塊 1: 1-10 -->
+            <div class="gallery-item" onclick="openModal('33.jpg')"><img src="33.jpg" alt="國王湖街景" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('34.jpg')"><img src="34.jpg" alt="國王湖售票處" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('35-1.jpg')"><img src="35-1.jpg" alt="國王湖港灣" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('35.jpg')"><img src="35.jpg" alt="國王湖電動船" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('36.jpg')"><img src="36.jpg" alt="船艙內部" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('37.jpg')"><img src="37.jpg" alt="窗邊的女孩" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('38.jpg')"><img src="38.jpg" alt="貝希特斯加登國家公園入口" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('39-1.jpg')"><img src="39-1.jpg" alt="健行路標" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('39.jpg')"><img src="39.jpg" alt="國王湖湖畔" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('40.jpg')"><img src="40.jpg" alt="林間木屋商店" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <!-- 區塊 2: 11-20 (重複) -->
+            <div class="gallery-item" onclick="openModal('33.jpg')"><img src="33.jpg" alt="國王湖街景" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('34.jpg')"><img src="34.jpg" alt="國王湖售票處" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('35-1.jpg')"><img src="35-1.jpg" alt="國王湖港灣" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('35.jpg')"><img src="35.jpg" alt="國王湖電動船" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('36.jpg')"><img src="36.jpg" alt="船艙內部" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('37.jpg')"><img src="37.jpg" alt="窗邊的女孩" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('38.jpg')"><img src="38.jpg" alt="貝希特斯加登國家公園入口" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('39-1.jpg')"><img src="39-1.jpg" alt="健行路標" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('39.jpg')"><img src="39.jpg" alt="國王湖湖畔" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('40.jpg')"><img src="40.jpg" alt="林間木屋商店" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <!-- 區塊 3: 21-30 (重複) -->
+            <div class="gallery-item" onclick="openModal('33.jpg')"><img src="33.jpg" alt="國王湖街景" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('34.jpg')"><img src="34.jpg" alt="國王湖售票處" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('35-1.jpg')"><img src="35-1.jpg" alt="國王湖港灣" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('35.jpg')"><img src="35.jpg" alt="國王湖電動船" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('36.jpg')"><img src="36.jpg" alt="船艙內部" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('37.jpg')"><img src="37.jpg" alt="窗邊的女孩" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('38.jpg')"><img src="38.jpg" alt="貝希特斯加登國家公園入口" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('39-1.jpg')"><img src="39-1.jpg" alt="健行路標" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('39.jpg')"><img src="39.jpg" alt="國王湖湖畔" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('40.jpg')"><img src="40.jpg" alt="林間木屋商店" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <!-- 區塊 4: 31-40 (重複) -->
+            <div class="gallery-item" onclick="openModal('33.jpg')"><img src="33.jpg" alt="國王湖街景" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('34.jpg')"><img src="34.jpg" alt="國王湖售票處" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('35-1.jpg')"><img src="35-1.jpg" alt="國王湖港灣" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('35.jpg')"><img src="35.jpg" alt="國王湖電動船" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('36.jpg')"><img src="36.jpg" alt="船艙內部" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('37.jpg')"><img src="37.jpg" alt="窗邊的女孩" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('38.jpg')"><img src="38.jpg" alt="貝希特斯加登國家公園入口" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('39-1.jpg')"><img src="39-1.jpg" alt="健行路標" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('39.jpg')"><img src="39.jpg" alt="國王湖湖畔" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('40.jpg')"><img src="40.jpg" alt="林間木屋商店" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <!-- 區塊 5: 41-50 (重複) -->
+            <div class="gallery-item" onclick="openModal('33.jpg')"><img src="33.jpg" alt="國王湖街景" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('34.jpg')"><img src="34.jpg" alt="國王湖售票處" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('35-1.jpg')"><img src="35-1.jpg" alt="國王湖港灣" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('35.jpg')"><img src="35.jpg" alt="國王湖電動船" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('36.jpg')"><img src="36.jpg" alt="船艙內部" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('37.jpg')"><img src="37.jpg" alt="窗邊的女孩" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('38.jpg')"><img src="38.jpg" alt="貝希特斯加登國家公園入口" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('39-1.jpg')"><img src="39-1.jpg" alt="健行路標" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('39.jpg')"><img src="39.jpg" alt="國王湖湖畔" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+            <div class="gallery-item" onclick="openModal('40.jpg')"><img src="40.jpg" alt="林間木屋商店" class="w-full h-64 object-cover rounded-lg shadow-md"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12 py-10">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>&copy; 2025 德國國王湖之旅. 版權所有.</p>
+            <p class="text-sm mt-2">網頁設計</p>
+        </div>
+    </footer>
+
+    <!-- Fullscreen Image Modal -->
+    <div id="imageModal" class="modal-container fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-80 opacity-0 pointer-events-none">
+        <img id="modalImage" src="" alt="放大的圖片" class="max-w-full max-h-full object-contain transform scale-95">
+        <button onclick="closeModal()" class="absolute top-5 right-8 text-white text-5xl font-light hover:text-gray-300 transition-colors">&times;</button>
+    </div>
+
+    <script>
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+
+        function openModal(src) {
+            modalImage.src = src;
+            imageModal.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => modalImage.classList.remove('scale-95'), 10); // Animate in
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeModal() {
+            modalImage.classList.add('scale-95');
+            imageModal.classList.add('opacity-0');
+            setTimeout(() => {
+                imageModal.classList.add('pointer-events-none');
+                document.body.classList.remove('overflow-hidden');
+            }, 300);
+        }
+        
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Gallery Item Animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
+
